@@ -1,6 +1,6 @@
 package HashTable;
 
-public class LinkedList <T extends Comparable<T>> {
+public class LinkedList<T extends Comparable<T>> {
     Node<T> head;
     Node<T> tail;
 
@@ -39,5 +39,26 @@ public class LinkedList <T extends Comparable<T>> {
             temp = temp.next;
         }
         return false;
+    }
+
+    //Method to Delete Given Node from Linked List
+    public void removeNode(T data) {
+        if (head == null) {
+            System.out.println("Linked List is Empty.");
+        } else {
+            if (head.key.compareTo(data) == 0) {
+                head = head.next;
+            } else {
+                Node<T> prevNode = head;
+                Node<T> temp = head.next;
+                while (prevNode != null) {
+                    if (temp.key.compareTo(data) == 0) {
+                        prevNode.next = temp.next;
+                    }
+                    prevNode = prevNode.next;
+                    temp = temp.next;
+                }
+            }
+        }
     }
 }
